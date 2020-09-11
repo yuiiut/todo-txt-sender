@@ -196,8 +196,7 @@ func (f *file) mailSender(ctx context.Context) error {
 
 func (f *file) moveFile() error {
 	cmd := exec.Command("mv", f.fileName, reportedFile)
-	err := cmd.Run()
-	if err != nil {
+	if err := cmd.Run(); err != nil {
 		return err
 	}
 
